@@ -3,12 +3,12 @@ let computadoraMarcador  = 0
 const usuarioMarcador__span = document.querySelector('.usuario__marcador')
 const computadoraMarcador__span = document.querySelector('.computadora__marcador')
 const resultado = document.querySelector('.cuerpo--resultado')
-const roca = document.querySelector('#roca')
+const piedra = document.querySelector('#piedra')
 const papel = document.querySelector('#papel')
 const tijera = document.querySelector('#tijera')
 
 function getComputadoraEleccion(){
-    const opciones = ['roca', 'papel','tijera']
+    const opciones = ['piedra', 'papel','tijera']
     const opcionRandom = Math.floor(Math.random()*3)
     return opciones[opcionRandom]
 }
@@ -23,40 +23,40 @@ function game(usuarioEleccion){
 
 
 
-roca.addEventListener('click',()=>{
-    /* console.log('clickiaste en roca') */
+piedra.addEventListener('click',()=>{
+    /* console.log('clickiaste en piedra') */
     let computadoraEleccion = getComputadoraEleccion()
-    game('roca')  
+    game('piedra')  
     papel.style.border = '2px solid white'
     tijera.style.border = '1px solid white'
-    if (computadoraEleccion == 'roca'){
+    if (computadoraEleccion == 'piedra'){
         /* console.log(`Hay empate`) */
         resultado.innerHTML = 'Hay empate'
-        roca.style.border = '2px solid yellow'
+        piedra.style.border = '2px solid yellow'
     } else if ((computadoraEleccion) == 'tijera'){
         /* console.log(`Roca le gana a ${computadoraEleccion}`) */
-        resultado.innerHTML = `Ganaste, Roca le gana a ${computadoraEleccion}`
+        resultado.innerHTML = `Ganaste, Piedra le gana a ${computadoraEleccion}`
         usuarioMarcador++
         usuarioMarcador__span.innerHTML = usuarioMarcador
-        roca.style.border = '2px solid green'
+        piedra.style.border = '2px solid green'
     } else{
         /* console.log(`Perdiste contra ${computadoraEleccion}`) */
         resultado.innerHTML = `Perdiste, ${computadoraEleccion} le gana a Roca`
         computadoraMarcador++
         computadoraMarcador__span.innerHTML = computadoraMarcador
-        roca.style.border = '2px solid red'
+        piedra.style.border = '2px solid red'
     }
 })
 
 papel.addEventListener('click',()=>{
     let computadoraEleccion = getComputadoraEleccion()
     game('papel')
-    roca.style.border = '1px solid white'
+    piedra.style.border = '1px solid white'
     tijera.style.border = '1px solid white'
     if (computadoraEleccion == 'papel'){
         resultado.innerHTML= 'Hay empate'
         papel.style.border= '2px solid yellow'
-    } else if (computadoraEleccion == 'roca'){
+    } else if (computadoraEleccion == 'piedra'){
         resultado.innerHTML= `Ganaste, Papel le gana a ${computadoraEleccion}`
         usuarioMarcador++
         usuarioMarcador__span.innerHTML = usuarioMarcador
@@ -72,8 +72,8 @@ papel.addEventListener('click',()=>{
 tijera.addEventListener('click',()=>{
     let computadoraEleccion = getComputadoraEleccion()
     game('tijera')
-    roca.style.border = '1px solid white'
-    tijera.style.border = '1px solid white'
+    piedra.style.border = '1px solid white'
+    papel.style.border = '1px solid white'
     if (computadoraEleccion == 'tijera'){
         resultado.innerHTML= 'Hay empate'
         tijera.style.border= '2px solid yellow'

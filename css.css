@@ -52,10 +52,6 @@ body {
     transition: .5s;
 }
 
-.opciones p:hover {
-    background-color: rgba(240, 248, 255, 0.329);
-    color: #24272e;
-}
 
 
 
